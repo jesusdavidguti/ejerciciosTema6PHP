@@ -1,11 +1,12 @@
 // ejemplo4.js
-function mostrarUsuario(str) {
+function mostrarPersonaje(str) {
     if (str.length == 0) {
         document.getElementById("spnNombre").innerHTML = "";
         document.getElementById("spnApellido").innerHTML = "";
         document.getElementById("spnTrabajo").innerHTML = "";
         document.getElementById("spnEdad").innerHTML = "";
         document.getElementById("spnCiudad").innerHTML = "";
+        document.getElementById("ficha").style.display = "none";
         return;
     } else {
         var xmlhttp = new XMLHttpRequest();
@@ -18,13 +19,14 @@ function mostrarUsuario(str) {
                 xmlDoc.getElementsByTagName("apellido")[0].childNodes[0].nodeValue;
                 document.getElementById("spnTrabajo").innerHTML=
                 xmlDoc.getElementsByTagName("trabajo")[0].childNodes[0].nodeValue;
-                document.getElementById("spnEdad").innerHTML="Edad: " +
+                document.getElementById("spnEdad").innerHTML=
                 xmlDoc.getElementsByTagName("edad")[0].childNodes[0].nodeValue;
-                document.getElementById("spnCiudad").innerHTML="<br/>De: " +
+                document.getElementById("spnCiudad").innerHTML=
                 xmlDoc.getElementsByTagName("ciudad")[0].childNodes[0].nodeValue;
+                document.getElementById("ficha").style.display = "block";
             }
         };
-        xmlhttp.open("GET", "ejemplo4.php?q=" + str, true);
+        xmlhttp.open("GET", "ejemplo4servidor.php?q=" + str, true);
         xmlhttp.send();
     }
 }
