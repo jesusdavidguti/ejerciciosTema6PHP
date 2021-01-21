@@ -12,7 +12,7 @@ function mostrarProducto(str) {
             if (this.readyState == 4 && this.status == 200) {
                 var xmlDoc = this.responseXML;
                 document.getElementById("spnNombreCorto").innerHTML=
-                xmlDoc.getElementsByTagName("nombre")[0].childNodes[0].nodeValue;
+                xmlDoc.getElementsByTagName("nombre_corto")[0].childNodes[0].nodeValue;
                 document.getElementById("spnDescripcion").innerHTML=
                 xmlDoc.getElementsByTagName("descripcion")[0].childNodes[0].nodeValue;
                 document.getElementById("spnPVP").innerHTML=

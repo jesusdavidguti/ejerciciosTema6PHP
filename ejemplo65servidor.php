@@ -15,7 +15,7 @@
         echo "<cod>" . $producto['cod'] . "</cod>";
         echo "<nombre_corto>" . $producto['nombre_corto'] . "</nombre_corto>";
         echo "<descripcion>" . $producto['descripcion'] . "</descripcion>";
-        echo "<pvp>" . $producto['PVP'] . "</pvp";
+        echo "<pvp>" . $producto['PVP'] . "</pvp>";
 
     }
     echo "</producto>";
