@@ -12,19 +12,19 @@ $bd = new PDO('mysql:host=localhost;dbname=usuario;charset=utf8', 'usuario', 'us
 <body>
 
 <form>
-<label for="selProducto">Seleccione un producto:</label>
-        <select name="selProducto" onchange="mostrarProducto(this.value)">
+    <label for="selProducto">Seleccione un producto:</label>
+    <select name="selProducto" onchange="mostrarProducto(this.value)">
             <option value="">Seleccione...</option>
 <?php
 $resultado = $bd->query('SELECT cod, nombre_corto, descripcion, PVP FROM producto ORDER BY nombre_corto ASC');
 while ($producto = $resultado->fetch()) {
-    echo '<option value="' . $producto['id'] . '">' . $producto['nombre_corto'] . '</option>';
+    echo '<option value="' . $producto['cod'] . '">' . $producto['nombre_corto'] . '</option>';
 }
 ?>
     </select>
-    </form>
+</form>
     <div id="ficha" style="display: none;">
-    <h2><span id="spnNombreCorto"></span> <span id="spnDescripcion"></span><span id="spnPVP"></span></h2>
+    <!-- <h2><span id="spnNombreCorto"></span> <span id="spnDescripcion"></span><span id="spnPVP"></span></h2> -->
     <p><strong>Nombre</strong>: <span id="spnNombreCorto"></span></p>
     <p><strong>Descripción</strong>: <span id="spnDescripcion"></span></p>
     <p><strong>Precio</strong>: <span id="spnPVP"></span></p>

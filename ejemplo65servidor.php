@@ -12,7 +12,7 @@
     $consulta = $bd->prepare("SELECT cod, nombre_corto, descripcion, PVP FROM producto WHERE cod = :cod");
     $consulta->execute(['cod' => $_GET['q']]);
     if ($producto = $consulta->fetch()) {
-        echo "<cod>" . $producto['cod'] . "</cod>";
+        //echo "<cod>" . $producto['cod'] . "</cod>";
         echo "<nombre_corto>" . $producto['nombre_corto'] . "</nombre_corto>";
         echo "<descripcion>" . $producto['descripcion'] . "</descripcion>";
         echo "<pvp>" . $producto['PVP'] . "</pvp>";
