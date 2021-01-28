@@ -10,13 +10,13 @@ function mostrarProducto(str) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var xmlDoc = this.responseXML;
+                producto = JSON.parse(this.responseText);
                 document.getElementById("spnNombreCorto").innerHTML=
-                xmlDoc.getElementsByTagName("nombre_corto")[0].childNodes[0].nodeValue;
+                producto.nombrecorto;
                 document.getElementById("spnDescripcion").innerHTML=
-                xmlDoc.getElementsByTagName("descripcion")[0].childNodes[0].nodeValue;
+                producto.descripcion;
                 document.getElementById("spnPVP").innerHTML=
-                xmlDoc.getElementsByTagName("pvp")[0].childNodes[0].nodeValue;
+                producto.pvp;
                 document.getElementById("ficha").style.display = "block";                
             }
         };
