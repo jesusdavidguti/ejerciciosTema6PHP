@@ -20,7 +20,7 @@ function mostrarProducto(str) {
                 document.getElementById("ficha").style.display = "block";                
             }
         };
-        xmlhttp.open("GET", "ejemplo65servidor.php?q=" + str, true);
+        xmlhttp.open("GET", "ejemplo67servidor.php?q=" + str, true);
         xmlhttp.send();
     }
 }
