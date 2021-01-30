@@ -9,7 +9,7 @@
 
     $num=$_GET["num"];
     $contRegistros = 0;
-
+    
     $bd = new PDO('mysql:host=localhost;dbname=hackBlog;charset=utf8', 'usuario', 'usuario');
 
     $consulta = $bd->query("SELECT id, titular, entradilla, cuerpo, fecha FROM noticia");
