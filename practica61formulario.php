@@ -20,11 +20,13 @@
 </form>
 
     <div id="ficha" style="display: none;">
+    <p><strong>Id</strong>: <span id="spnId"></span></p>    
     <p><strong>Nombre</strong>: <span id="spnTitular"></span></p>
     <p><strong>Descripción</strong>: <span id="spnEntradilla"></span></p>
     <p><strong>Precio</strong>: <span id="spnFecha"></span></p>
     </div>
-    </div>
+
+    <div id="areaDatos"></div>
 
 </body>
 

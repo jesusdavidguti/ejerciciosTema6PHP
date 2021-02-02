@@ -19,12 +19,23 @@ function mostrarNoticia(str) {
             .then(function(noticias) { // lo recibimos en el parámetro "noticia"
 
                 noticias.forEach(noticia => {
+
+                    let puntero = document.getElementById("areaDatos");
+
+                    // Insertar tabla
+
+
+
+                    document.getElementById("spnId").innerHTML=
+                    noticia.id;                    
                     document.getElementById("spnTitular").innerHTML=
                     noticia.titular;
                     document.getElementById("spnEntradilla").innerHTML=
                     noticia.entradilla;
                     document.getElementById("spnFecha").innerHTML=
-                    noticia.fecha;                        
+                    noticia.fecha;    
+                    
+                    
                 });
                 document.getElementById("ficha").style.display = "block";                
             })

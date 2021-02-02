@@ -7,15 +7,24 @@
     // obtener (si num es 5, devolverá las 5 últimas noticias).
     //
 
-    $num=$_GET["num"];
-    $contRegistros = 0;
-    
-    $bd = new PDO('mysql:host=localhost;dbname=hackBlog;charset=utf8', 'usuario', 'usuario');
+    header('Content-Type: application/json'); // Esta línea indica que la respuesta es JSON
+    header("Cache-Control: no-cache, must-revalidate"); // Esta línea ayuda a que la respuesta no se incluya en caché
+    // Fecha caducada
+    header("Expires: Mon, 26 Jul 1997 05:00:00 GMT"); // Esta línea ayuda a que la respuesta no se incluya en caché
 
-    $consulta = $bd->query("SELECT id, titular, entradilla, cuerpo, fecha FROM noticia");
-    while (($noticia =  $consulta->fetch()) && ($contRegistros < $num)){
-        echo json_encode($noticia);
-        $contRegistros++;
+    $num=$_GET["num"];
+
+    try{
+        $bd = new PDO('mysql:host=localhost;dbname=hackBlog;charset=utf8', 'usuario', 'usuario');
+    }
+    catch (PDOException $e){
+        echo $e->getMessage(); 
     }
 
+    $q = "SELECT id, titular, entradilla, cuerpo, fecha FROM noticia LIMIT ".$num;
+    $consulta = $bd->query($q); 
+    $noticias = $consulta->fetchAll();
+    
+    echo json_encode($noticias);
+        
 ?>
