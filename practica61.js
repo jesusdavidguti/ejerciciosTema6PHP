@@ -3,12 +3,11 @@
 //
 function mostrarNoticia(str) {
     
+    let puntero = document.getElementById("areaDatos");
+    let cadena = "";
+
     if (str.length == 0) {
-        document.getElementById("spnTitular").innerHTML = "";
-        document.getElementById("spnEntradilla").innerHTML = "";
-        document.getElementById("spnFecha").innerHTML = "";
-        document.getElementById("ficha").style.display = "none";
-        return;
+        puntero.innerHTML = cadena;                                                    
     } else {
 
         fetch('practica61servidor.php?num=' + str)        
@@ -18,26 +17,24 @@ function mostrarNoticia(str) {
             })
             .then(function(noticias) { // lo recibimos en el parámetro "noticia"
 
+                // Insertar tabla            
+                cadena = "<table>";
+                cadena += "<th>Id</th><th>Titular</th><th>Entradilla</th><th>Cuerpo</th><th>Fecha</th>";
                 noticias.forEach(noticia => {
 
-                    let puntero = document.getElementById("areaDatos");
+                    cadena += "<tr>";
+                    cadena += "<td>" + noticia.id + "</td>" + 
+                            "<td>" + noticia.titular + "</td>" + 
+                            "<td>" + noticia.entradilla + "</td>" + 
+                            "<td>" + noticia.cuerpo + "</td>" +
+                            "<td>" + noticia.fecha + "</td>" 
+                            ;
+                    cadena += "</tr>";                        
 
-                    // Insertar tabla
-
-
-
-                    document.getElementById("spnId").innerHTML=
-                    noticia.id;                    
-                    document.getElementById("spnTitular").innerHTML=
-                    noticia.titular;
-                    document.getElementById("spnEntradilla").innerHTML=
-                    noticia.entradilla;
-                    document.getElementById("spnFecha").innerHTML=
-                    noticia.fecha;    
-                    
-                    
-                });
-                document.getElementById("ficha").style.display = "block";                
+                    });
+                cadena += "</table>";    
+                
+                puntero.innerHTML = cadena;                                                    
             })
             .catch(err => {
                     alert ("Error en la recuperación de datos" + err);
