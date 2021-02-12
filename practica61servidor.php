@@ -21,7 +21,7 @@
         echo $e->getMessage(); 
     }
 
-    $q = "SELECT id, titular, entradilla, cuerpo, fecha FROM noticias LIMIT ".$num;
+    $q = "SELECT id_noticia, titular, entradilla, cuerpo, fecha FROM noticias LIMIT ".$num;
     $consulta = $bd->query($q); 
     $noticias = $consulta->fetchAll();
     
