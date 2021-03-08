@@ -12,6 +12,7 @@ function mostrarNoticia(str) {
 
         fetch('practica61servidor.php?num=' + str)        
             .then(function(response) { 
+                //alert(response.json());
                 return response.json(); // Este devuelve un json
                 //return response.text(); // Este response devuelve los datos en crudo.
             })
