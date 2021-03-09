@@ -22,6 +22,8 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+drop table compra;
+
 --
 -- Estructura de tabla para la tabla `compra`
 --
@@ -30,7 +32,7 @@ CREATE TABLE `compra` (
   `id` int(10) UNSIGNED NOT NULL,
   `producto` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `cantidad` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `compra`
@@ -38,9 +40,9 @@ CREATE TABLE `compra` (
 
 INSERT INTO `compra` (`id`, `producto`, `cantidad`) VALUES
 (1, 'Leche', 6),
-(2, 'Manzanas', 4);
-(3, 'Lejía', 1);
-(4, 'Galletas', 1);
+(2, 'Manzanas', 4),
+(3, 'Lejía', 1),
+(4, 'Galletas', 1),
 (5, 'Patatas', 2);
 
 --
