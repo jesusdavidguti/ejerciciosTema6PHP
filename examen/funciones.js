@@ -18,7 +18,7 @@ function buscaProducto(str) {
             .then(function(producto) { // lo recibimos en el parámetro "producto"
 
                 if (producto){
-                    cadena = "Producto existe con id = " + producto.id
+                    cadena = "Producto existe con id = " + producto.id;
                 }
                 else{
                     cadena = "No registrado";

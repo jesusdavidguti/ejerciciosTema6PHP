@@ -13,4 +13,7 @@
 
         echo json_encode($producto);
     }
+    else{
+        echo null;
+    }
 ?>
