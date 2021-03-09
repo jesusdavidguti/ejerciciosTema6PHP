@@ -8,7 +8,7 @@
 
 <h1>Lista de la compra</h1>
   <div id="areaDatos"></div>
- <button type="button" onclick="cargar_productos()">Cargar lista</button> 
+ <button type="button" onclick="cargarProductos()">Cargar lista</button> 
  <br/>
 <br/>
 <br/>
@@ -18,8 +18,10 @@
   <legend>Añadir</legend>
   <p><label>Nombre: <input type="text" name="txtNombre"></label></p>
   <p><label>Cantidad: <input type="number" name="txtCantidad"></label></p>
-  <input type="submit" value="Añadir" name="btnAnadir">
+  <!-- <input type="submit" value="Añadir" name="btnAnadir"> -->
+  <button type="button" onclick="buscaProducto(document.getElementsByName('txtNombre')[0].value)">Añadir</button>   
 </fieldset>
 </form>
+<div id="areaMensaje"></div>
 </body>
 </html>
