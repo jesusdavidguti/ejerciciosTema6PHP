@@ -3,6 +3,8 @@ function buscaProducto(str) {
     let puntero = document.getElementById("areaMensaje");
     let cadena = "";
 
+    //alert (str);
+
     if (str.length == 0) {
         document.getElementById("areaMensaje").innerHTML = "";
         return;
@@ -15,11 +17,11 @@ function buscaProducto(str) {
             })
             .then(function(producto) { // lo recibimos en el parámetro "producto"
 
-                if (producto.length > 0){
-                    cadena = "Producto existe con id = " + producto[0].id
+                if (producto){
+                    cadena = "Producto existe con id = " + producto.id
                 }
                 else{
-                    cadena = "";
+                    cadena = "No registrado";
                 }
 
                 puntero.innerHTML = cadena;

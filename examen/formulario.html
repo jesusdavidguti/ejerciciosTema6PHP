@@ -16,7 +16,7 @@
 <form>
 <fieldset>
   <legend>Añadir</legend>
-  <p><label>Nombre: <input type="text" name="txtNombre"></label></p>
+  <p><label>Nombre: <input type="text" name="txtNombre" onkeyup="buscaProducto(this.value)"></label></p>
   <p><label>Cantidad: <input type="number" name="txtCantidad"></label></p>
   <!-- <input type="submit" value="Añadir" name="btnAnadir"> -->
   <button type="button" onclick="buscaProducto(document.getElementsByName('txtNombre')[0].value)">Añadir</button>   
