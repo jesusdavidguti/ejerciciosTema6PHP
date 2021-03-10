@@ -1,0 +1,19 @@
+{% extends 'base.html.twig'%}
+
+{% block titulo %}  {{parent()}} {{pelicula.titulo}} {% endblock %}
+
+{% block contenedor %}
+			<h2> {{pelicula.titulo}}</h2>
+			<div class="ficha">
+				<div class="lateral">
+					<img src="/images/{{pelicula.id}}.jpg"/>
+				</div>
+				<h3>Información</h3>
+				<ul>
+					<li><strong>Pais:</strong>  {{pelicula.pais}}</li>
+					<li><strong>Director:</strong>  {{pelicula.director}}</li>
+					<li><strong>Fecha de estreno:</strong> {{pelicula.fechaEstreno | date}}</li>
+					<li><strong>Sinopsis:</strong>  {{pelicula.sinopsis}}</li>
+				</ul>
+			</div>
+{% endblock %}

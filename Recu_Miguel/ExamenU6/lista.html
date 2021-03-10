@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+  <script>
+    function listaSuscriptores() {
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("lista").innerHTML = this.responseText;
+        }
+      };
+      xmlhttp.open("GET", "listaSuscriptores.php", true);
+      xmlhttp.send();
+    }
+
+    function comprobar(str) {
+      if (str.length == 0) {
+        document.getElementById("comprobarEmail").innerHTML = "";
+        return;
+      } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("comprobarEmail").innerHTML = this.responseText;
+          }
+        };
+        xmlhttp.open("GET", "comprobarEmail.php?q=" + str, true);
+        xmlhttp.send();
+      }
+    }
+  </script>
+  <h1>Lista de suscriptores</h1>
+  <ul id="lista">
+  </ul>
+  <button type="button" onclick="listaSuscriptores()">Cargar lista</button>
+  <h2>Añadir</h2>
+  <form>
+    <fieldset>
+      <legend>Añadir suscriptor</legend>
+      <p><label>Nombre: <input type="text" name="nombre"></label></p>
+      <p><label>Email: <input type="text" name="email" onkeyup="comprobar(this.value)"> <span id="comprobarEmail"></span></label>
+      </p>
+      <input type="submit" value="Añadir" name="btnAnadir">
+    </fieldset>
+  </form>
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+demo_index:
+    path: /demo
+    controller: App\Controller\MainController::demoIndex
+
+demo_verPelicula:
+    path: /demo/peliculas/ficha/ID
+    controller: App\Controller\MainController::demoVerPelicula
+
+index:
+    path: /
+    controller: App\Controller\MainController::listarPeliculas
+
+ver_Pelicula:
+    path: /peliculas/ficha/{id}
+    controller: App\Controller\MainController::verPelicula

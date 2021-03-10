@@ -1,0 +1,20 @@
+{% extends 'base.html.twig'%}
+
+{% block cabecera %}Últimos estrenos{% endblock %}
+
+{% block contenedor %}
+	<h2>Bienvenidos</h2>
+	<p>Actualmente disponemos de las siguientes películas en cartelera:</p>
+	<ul class="listaPeliculas">
+
+    {% for peli in pelicula %}
+    <li class="peliculaItem">
+					<a href="peliculas/ficha/{{peli.id}}">
+						<img src="/images/{{peli.id}}.jpg"/>
+						<span> {{peli.titulo}}</span>
+					</a>
+				</li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
