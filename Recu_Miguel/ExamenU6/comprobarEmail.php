@@ -2,7 +2,7 @@
 
 try {
     $opciones = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
-    $bd = new PDO('mysql:host=localhost;dbname=examenu6;charset=utf8', 'root', 'usuario', $opciones);
+    $bd = new PDO('mysql:host=localhost;dbname=examenu6;charset=utf8', 'usuario', 'usuario', $opciones);
 } catch (PDOException $e) {
     exit($e->getMessage());
 }
