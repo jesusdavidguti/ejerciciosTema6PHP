@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <meta charset="utf8" />
+</head>
+
+<body>
+	<script>
+		
+		function comprobarcasos(str) {
+			if (str.length == 0) {
+				document.getElementById("spnCasos").innerHTML = "";
+				return;
+			} else {
+			var xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("spnCasos").innerHTML = this.responseText;
+				}
+			};
+			xmlhttp.open("GET", "comprobarCasos.php?q=" + str, true);
+			xmlhttp.send();
+			}
+		}
+	</script>
+
+    <h1>Situación del COVID19</h1>
+    <p><small>Últimos datos actualizados del coronavirus en España ofrecidos por el Ministerio de Sanidad a las 18.00 horas del jueves 12 de marzo.</small></p>
+    <form>
+		<select id="selComunidad" onchange="comprobarcasos('Cantabria')">
+			<option value="1">Andalucía</option>
+			<option value="2">Aragón</option>
+			<option value="3">Principado de Asturias</option>
+			<option value="4">Illes Balears</option>
+			<option value="5">Canarias</option>
+			<option value="6">Cantabria</option>
+			<option value="7">Castilla y León</option>
+			<option value="8">Castilla - La Mancha</option>
+			<option value="9">Cataluña</option>
+			<option value="10">Comunitat Valenciana</option>
+			<option value="11">Extremadura</option>
+			<option value="12">Galicia</option>
+			<option value="13">Comunidad de Madrid </option>
+			<option value="14">Región de Murcia</option>
+			<option value="15">Comunidad Foral de Navarra</option>
+			<option value="16">País Vasco</option>
+			<option value="17">La Rioja</option>
+			<option value="18">Ceuta</option>
+			<option value="19">Melilla</option>
+		</select>
+    </form>
+    <p>El número de infectados en la comunidad seleccionada es: <strong><span id="spnCasos"></span></strong></p>
+</body>
+
+</html>

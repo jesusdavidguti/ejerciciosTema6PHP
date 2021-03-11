@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <meta charset="utf8" />
+</head>
+
+<body>
+    <script>
+            function cargardatos() {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("selComunidad").innerHTML = this.responseText;
+                }
+                };
+                xmlhttp.open("GET", "lista.php", true);
+                xmlhttp.send();
+            }
+        
+            function comprobar(str) {
+                if (str.length == 0) {
+                    document.getElementById("spnCasos").innerHTML = "";
+                return;
+                } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("spnCasos").innerHTML = this.responseText;
+                    }
+                };
+                xmlhttp.open("GET", "comprobarCasos.php?q=" + str, true);
+                xmlhttp.send();
+                }
+            }
+    </script>
+
+
+    <h1>Situación del COVID19</h1>
+    <p><small>Últimos datos actualizados del coronavirus en España ofrecidos por el Ministerio de Sanidad a las 18.00 horas del jueves 12 de marzo.</small></p>
+    <form>
+        <select id="selComunidad" onchange="comprobar('Andalucia')"></select>
+        <button type="button" onclick="cargardatos()">Cargar datos</button>
+    </form>
+    <p>El número de infectados en la comunidad seleccionada es: <strong><span id="spnCasos"></span></strong></p>
+</body>
+
+</html>
