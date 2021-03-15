@@ -1,6 +1,6 @@
 <?php
-    // ejemplo5formulario_jquery.php
-    $bd = new PDO('mysql:host=localhost;dbname=dwes;charset=utf8', 'usuario', 'usuario');
+// ejemplo5formulario_jquery.php
+$bd = new PDO('mysql:host=localhost;dbname=dwes;charset=utf8', 'usuario', 'usuario');
 ?>
 <html>
 
@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"></script>
-    <script src="ejemplo5_jquery.js"></script>          
+    <script src="ejemplo5_jquery.js"></script>
 </head>
 
 <body>
@@ -19,10 +19,11 @@
         <select id="selPersonaje" name="selPersonaje">
             <option value="">Seleccione...</option>
 <?php
-    $resultado = $bd->query('SELECT id, nombre FROM familyguy ORDER BY nombre ASC');
-    while ($personaje = $resultado->fetch()) {
-        echo '<option value="' . $personaje['id'] . '">' . $personaje['nombre'] . '</option>';
-    }
+$resultado = $bd->query('SELECT id, nombre FROM familyguy ORDER BY nombre ASC');
+while ($personaje = $resultado->fetch()) {
+    echo '<option value="' . $personaje['id'] . '">' . $personaje['nombre'] . '</option>';
+}
+
 ?>
         </select>
     </form>
@@ -37,4 +38,3 @@
 </body>
 
 </html>
-
