@@ -3,20 +3,32 @@
 
 <head>
     <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>    
     <script>
         function mostrarSugerencias(str) {
             if (str.length == 0) {
                 document.getElementById("txtSugerencia").innerHTML = "";
                 return;
             } else {
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        document.getElementById("txtSugerencia").innerHTML = this.responseText;
-                    }
-                };
-                xmlhttp.open("GET", "ejemplo1.php?q=" + str, true);
-                xmlhttp.send();
+                // var xmlhttp = new XMLHttpRequest();
+                // xmlhttp.onreadystatechange = function () {
+                //     if (this.readyState == 4 && this.status == 200) {
+                //         document.getElementById("txtSugerencia").innerHTML = this.responseText;
+                //     }
+                // };
+                // xmlhttp.open("GET", "ejemplo1.php?q=" + str, true);
+                // xmlhttp.send();
+                //
+                // Ejercicios ampliación: cambio a llamada jQuery
+                $.ajax({
+                    type: "GET", url: "ejemplo1.php", data: "q=" + str,
+                    statusCode: {
+                        404: function() { alert('Página no encontrada'); }
+                    },
+                    success: function(result) { document.getElementById("txtSugerencia").innerHTML = result;}
+                });                
             }
         }
     </script>
