@@ -2,24 +2,38 @@
 <html lang="es">
 <head>
     <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>        
     <script>
         function comprobar(str) {
             if (str.length == 0) {
                 document.getElementById("error").innerHTML = "";
                 return;
             } else {
-                var xmlhttp = new XMLHttpRequest();
-                xmlhttp.onreadystatechange = function() {
-                    if (this.readyState == 4 && this.status == 200) {
-                        if (this.responseText != "OK") {
-                            document.getElementById("error").innerHTML = this.responseText;
-                        } else {
-                            document.getElementById("error").innerHTML = "";
-                        }
-                    }
-                };
-                xmlhttp.open("GET", "ejemplo3.php?q=" + str, true);
-                xmlhttp.send();
+                // var xmlhttp = new XMLHttpRequest();
+                // xmlhttp.onreadystatechange = function() {
+                //     if (this.readyState == 4 && this.status == 200) {
+                //         if (this.responseText != "OK") {
+                //             document.getElementById("error").innerHTML = this.responseText;
+                //         } else {
+                //             document.getElementById("error").innerHTML = "";
+                //         }
+                //     }
+                // };
+                // xmlhttp.open("GET", "ejemplo3.php?q=" + str, true);
+                // xmlhttp.send();
+                //
+                // Ejercicios ampliación 6.1: cambio a llamada jQuery
+                $.ajax({
+                    type: "GET", url: "ejemplo3.php?q=" + str,
+                    statusCode: {
+                         404: function() { alert('Página no encontrada ' + statusCode); }
+                     },
+                    success: function(result) { 
+                        document.getElementById("error").innerHTML = result;}
+                });                
+
             }
         }
     </script>

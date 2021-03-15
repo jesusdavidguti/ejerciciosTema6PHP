@@ -6,6 +6,9 @@ $bd = new PDO('mysql:host=localhost;dbname=dwes;charset=utf8', 'usuario', 'usuar
 
 <head>
     <meta charset="utf8" />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>        
     <script src="ejemplo4.js"></script>
 </head>
 
