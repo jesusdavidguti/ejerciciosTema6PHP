@@ -23,10 +23,10 @@
                 //
                 // Ejercicios ampliación: cambio a llamada jQuery
                 $.ajax({
-                    type: "GET", url: "ejemplo1.php", data: "q=" + str,
+                    type: "GET", url: "ejemplo1.php?q=" + str,
                     statusCode: {
-                        404: function() { alert('Página no encontrada'); }
-                    },
+                         404: function() { alert('Página no encontrada ' + statusCode); }
+                     },
                     success: function(result) { document.getElementById("txtSugerencia").innerHTML = result;}
                 });                
             }
